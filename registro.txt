@@ -1,0 +1,4 @@
+R,C,23,f,rtf
+R,C,40,f,rtftre
+Rodrih,ewc,40,Dniew,ewore
+Rodrigo,Calderon,40,Dam,z011
