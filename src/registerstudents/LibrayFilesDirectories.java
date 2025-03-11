@@ -176,7 +176,12 @@ class LibrayFilesDirectories {
         return estudianteToString;
         
     }
-    //Find if a especific student exists, by his dni
+    /**
+     * Find if a especific student exists, by his dni
+     * @param dni
+     * @param students
+     * @return 
+     */
     public static boolean findStudent(String dni,ArrayList<Student> students) {
         boolean encontrado = false; 
         for (int i = 0; i < students.size(); i++) {
