@@ -116,11 +116,14 @@ class LibrayFilesDirectories {
         String curso = escaner.nextLine();
         System.out.println("Give me your DNI");
         String dni = escaner.nextLine();
-        Student student1 = new Student(nombre, apellido, edad, curso, dni);
+        if (!findStudent(dni,students)) {
+             Student student1 = new Student(nombre, apellido, edad, curso, dni);
         students.add(student1);
         addStudent(students, register);
         System.out.println(students.size());
-
+        } else {
+            System.out.println("No se pueden agregar dos alumnos con el mismo DNI");
+        }
     }
 /**
  *  Write a student with to String on the register
@@ -169,13 +172,27 @@ class LibrayFilesDirectories {
             } else if (i == students.size() - 1) {
                 System.out.println("Estudiante no encontrado");
             }
-
         }
-
         return estudianteToString;
+        
+    }
+    public static boolean findStudent(String dni,ArrayList<Student> students) {
+        boolean encontrado = false; 
+        for (int i = 0; i < students.size(); i++) {
+            //String[] parts = students.get(i).split(",");
+            if (dni.equals(students.get(i).getDni())) {
+                System.out.println("Estudiante ya existente");
+                encontrado = true;
+                break;
+                //seguir aquí, posible cambio 
+            } else if (i == students.size() - 1) {
+                System.out.println("Estudiante no existe");
+            }
+        }
+        return encontrado;
     }
 /**
- * Delet a student from the array of students, and then, on the register
+ * Delet a student from the array of students and on the register
  * @param register
  * @param registerOfStudents 
  */
